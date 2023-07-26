@@ -1,4 +1,36 @@
 fun main(args: Array<String>) {
+//  grammarConsole()
+}
+
+class Character(name:String, age:Int, height:Double){ // 한가지 생성자로만 사용할때
+    var name:String = ""
+    var age:Int = 0
+    var height:Double = 0.0
+
+    init {
+        this.name = name
+        this.age = age
+        this.height = height
+    }
+}
+class Character2 {
+    var name:String = ""
+    var age:Int = 0
+    var height:Double = 0.0
+
+    constructor(name:String, age:Int) { // 여러개의 생성자를 사용할때
+        this.name = name
+        this.age = age
+    }
+    constructor(name:String) { // 여러개의 생성자를 사용할때
+        this.name = name
+    }
+    constructor(name:String, age: Int, height: Double) { // 여러개의 생성자를 사용할때
+        this.name = name
+    }
+}
+
+fun grammarConsole() :Unit { //Unit은 void와 같은 것 같음.
     println("Hello World!")
     var a = 1
     a = 2 // 재할당
