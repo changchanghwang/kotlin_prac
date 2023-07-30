@@ -1,5 +1,6 @@
 import extendClass.Calculator
 import extendClass.Chicken
+import extendClass.Duck
 import extendClass.Sparrow
 
 fun main(args: Array<String>) {
@@ -9,9 +10,11 @@ fun main(args: Array<String>) {
 
     val chicken = Chicken("chicken")
     val sparrow = Sparrow("sparrow")
+    val duck = Duck("duck")
 
     chicken.fly()
     sparrow.fly()
+    duck.swim()
 
     val calculator = Calculator()
     println(calculator.add(1, 2))

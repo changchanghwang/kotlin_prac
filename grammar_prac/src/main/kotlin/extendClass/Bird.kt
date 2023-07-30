@@ -1,5 +1,9 @@
 package extendClass
 
+interface WaterBehavior {
+    fun swim()
+}
+
 open class Bird(name: String) {
     var name: String
 
@@ -20,3 +24,9 @@ class Chicken(name: String) : Bird(name) {
 
 
 class Sparrow(name: String) : Bird(name)
+
+class Duck(name: String) : Bird(name), WaterBehavior {
+    override fun swim() {
+        println("${this.name} can swim.")
+    }
+}
