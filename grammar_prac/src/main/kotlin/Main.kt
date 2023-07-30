@@ -1,30 +1,31 @@
-import AccessModifier.AccessTestClass
-import extendClass.Calculator
-import extendClass.Chicken
-import extendClass.Duck
-import extendClass.Sparrow
+import lazyinitialization.Student
 
 fun main(args: Array<String>) {
 //  grammarConsole()
-    val c = Character2("arthur", 15)
-    c.method()
+//    val c = Character2("arthur", 15)
+//    c.method()
+//
+//    val chicken = Chicken("chicken")
+//    val sparrow = Sparrow("sparrow")
+//    val duck = Duck("duck")
+//
+//    chicken.fly()
+//    sparrow.fly()
+//    duck.swim()
+//
+//    val calculator = Calculator()
+//    println(calculator.add(1, 2))
+//    println(calculator.add(1.2, 2.3))
+//
+//    val access = AccessTestClass()
+//
+//    access.test()
+//    access.internalTest()
 
-    val chicken = Chicken("chicken")
-    val sparrow = Sparrow("sparrow")
-    val duck = Duck("duck")
-
-    chicken.fly()
-    sparrow.fly()
-    duck.swim()
-
-    val calculator = Calculator()
-    println(calculator.add(1, 2))
-    println(calculator.add(1.2, 2.3))
-
-    val access = AccessTestClass()
-
-    access.test()
-    access.internalTest()
+    val student = Student()
+    student.name = "arthur"
+    student.getName()
+    student.getAddress()
 }
 
 class Character(name: String, age: Int, height: Double) { // 한가지 생성자로만 사용할때
