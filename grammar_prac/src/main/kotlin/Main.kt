@@ -1,5 +1,3 @@
-import lazyinitialization.Student
-
 fun main(args: Array<String>) {
 //  grammarConsole()
 //    val c = Character2("arthur", 15)
@@ -22,10 +20,16 @@ fun main(args: Array<String>) {
 //    access.test()
 //    access.internalTest()
 
-    val student = Student()
-    student.name = "arthur"
-    student.getName()
-    student.getAddress()
+//    val student = Student()
+//    student.name = "arthur"
+//    student.getName()
+//    student.getAddress()
+
+    val array = arrayListOf<Int>(1, 2, 3, 4, 5) //수정가능한 array
+    array.map { it * 2 }.forEach { println(it) }
+
+    val add = { num1: Int, num2: Int -> num1 + num2 }
+    println(add(1, 2))
 }
 
 class Character(name: String, age: Int, height: Double) { // 한가지 생성자로만 사용할때
