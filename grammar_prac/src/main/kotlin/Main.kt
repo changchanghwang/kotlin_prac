@@ -1,3 +1,4 @@
+import AccessModifier.AccessTestClass
 import extendClass.Calculator
 import extendClass.Chicken
 import extendClass.Duck
@@ -20,6 +21,10 @@ fun main(args: Array<String>) {
     println(calculator.add(1, 2))
     println(calculator.add(1.2, 2.3))
 
+    val access = AccessTestClass()
+
+    access.test()
+    access.internalTest()
 }
 
 class Character(name: String, age: Int, height: Double) { // 한가지 생성자로만 사용할때
