@@ -1,5 +1,6 @@
 package com.example.jpa.user.service
 
+import com.example.jpa.common.exception.InvalidInputException
 import com.example.jpa.user.dto.MemberDtoRequest
 import com.example.jpa.user.entity.Member
 import com.example.jpa.user.repository.MemberRepository
@@ -16,15 +17,9 @@ class MemberService(private val memberRepository: MemberRepository) {
     fun signup(memberDtoRequest: MemberDtoRequest): String {
         val member: Member? = memberRepository.findByEmail(memberDtoRequest.email)
         if (member !== null) {
-            return "이미 가입된 회원입니다."
+            throw InvalidInputException("email", "이미 존재하는 이메일입니다.")
         }
-        val newMember = Member(
-            null,
-            memberDtoRequest.email,
-            memberDtoRequest.password,
-            memberDtoRequest.name,
-            memberDtoRequest.gender,
-        )
+        val newMember = memberDtoRequest.toEntity()
         memberRepository.save(newMember)
         return "회원가입 완료"
     }

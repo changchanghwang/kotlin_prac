@@ -2,12 +2,15 @@ package com.example.jpa.user.dto
 
 import com.example.jpa.common.annotation.ValidateEnum
 import com.example.jpa.common.status.Gender
+import com.example.jpa.user.entity.Member
 import com.fasterxml.jackson.annotation.JsonProperty
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Pattern
 
 data class MemberDtoRequest(
+    val id: Long?,
+
     @field:NotBlank
     @field:Email
     @JsonProperty("email")
@@ -38,4 +41,6 @@ data class MemberDtoRequest(
         get() = _name!!
     val gender: Gender
         get() = Gender.valueOf(_gender!!)
+
+    fun toEntity(): Member = Member(id, email, password, name, gender)
 }

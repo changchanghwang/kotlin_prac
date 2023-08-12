@@ -1,5 +1,6 @@
 package com.example.jpa.user.controller
 
+import com.example.jpa.common.dto.BaseResponse
 import com.example.jpa.user.dto.MemberDtoRequest
 import com.example.jpa.user.service.MemberService
 import jakarta.validation.Valid
@@ -12,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class MemberController(private val memberService: MemberService) {
     @PostMapping("/signup")
-    fun signup(@RequestBody @Valid memberDtoRequest: MemberDtoRequest): String {
-        return memberService.signup(memberDtoRequest)
+    fun signup(@RequestBody @Valid memberDtoRequest: MemberDtoRequest): BaseResponse<Unit> {
+        val resultMessage: String = memberService.signup(memberDtoRequest)
+        return BaseResponse(message = resultMessage)
     }
 }
