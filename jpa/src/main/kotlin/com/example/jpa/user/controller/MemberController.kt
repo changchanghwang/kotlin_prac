@@ -1,6 +1,8 @@
 package com.example.jpa.user.controller
 
+import com.example.jpa.common.authority.Tokeninfo
 import com.example.jpa.common.dto.BaseResponse
+import com.example.jpa.user.dto.LoginDto
 import com.example.jpa.user.dto.MemberDtoRequest
 import com.example.jpa.user.service.MemberService
 import jakarta.validation.Valid
@@ -16,5 +18,11 @@ class MemberController(private val memberService: MemberService) {
     fun signup(@RequestBody @Valid memberDtoRequest: MemberDtoRequest): BaseResponse<Unit> {
         val resultMessage: String = memberService.signup(memberDtoRequest)
         return BaseResponse(message = resultMessage)
+    }
+
+    @PostMapping("/login")
+    fun login(@RequestBody @Valid loginDto: LoginDto): BaseResponse<Tokeninfo> {
+        val token = memberService.login(loginDto)
+        return BaseResponse(data = token)
     }
 }

@@ -4,6 +4,7 @@ import com.example.jpa.common.dto.BaseResponse
 import com.example.jpa.common.status.ResultCode
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
@@ -47,4 +48,18 @@ class CustomExceptionHandler {
             ), HttpStatus.BAD_REQUEST
         )
     }
+
+    @ExceptionHandler(BadCredentialsException::class)
+    protected fun badCredentialsException(ex: BadCredentialsException):
+            ResponseEntity<BaseResponse<Map<String, String>>> {
+        val errors = mapOf(" " to " .")
+        return ResponseEntity(
+            BaseResponse(
+                ResultCode.ERROR.name,
+                errors,
+                ResultCode.ERROR.message
+            ), HttpStatus.BAD_REQUEST
+        )
+    }
+
 }

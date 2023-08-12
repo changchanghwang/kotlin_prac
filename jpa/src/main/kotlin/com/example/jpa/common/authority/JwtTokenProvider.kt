@@ -2,6 +2,7 @@ package com.example.jpa.common.authority
 
 import io.jsonwebtoken.*
 import io.jsonwebtoken.io.Decoders
+import io.jsonwebtoken.security.Keys
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.Authentication
@@ -79,3 +80,4 @@ class JwtTokenProvider {
             .body
     }
 }
+
