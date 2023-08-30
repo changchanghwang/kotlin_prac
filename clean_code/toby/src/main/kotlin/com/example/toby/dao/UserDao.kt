@@ -33,4 +33,15 @@ class UserDao(private val connectionMaker: ConnectionMaker) {
 
         return user
     }
+
+    fun delete(id:String){
+        val c = connectionMaker.makeConnection()
+        val ps = c.prepareStatement("DELETE FROM users WHERE id = ?")
+        ps.setString(1,id)
+
+        ps.executeUpdate()
+
+        ps.close()
+        c.close()
+    }
 }
