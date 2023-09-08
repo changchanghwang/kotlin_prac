@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Configuration
 class DaoFactory {
     @Bean
     fun userDao():UserDao{
-        return UserDao(connectionMaker())
+        return UserDao(dataSource())
     }
     @Bean
-    fun connectionMaker():ConnectionMaker{
-        return DConnectionMaker()
+    fun dataSource():Datasource{
+        return DDatasource()
     }
 }

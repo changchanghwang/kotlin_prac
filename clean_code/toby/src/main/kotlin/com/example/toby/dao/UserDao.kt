@@ -2,9 +2,9 @@ package com.example.toby.dao
 
 import com.example.toby.domain.User
 
-class UserDao(private val connectionMaker: ConnectionMaker) {
+class UserDao(private val datasource: Datasource) {
     fun add(user:User): Unit {
-       val c = connectionMaker.makeConnection()
+       val c = datasource.makeConnection()
         val ps = c.prepareStatement("INSERT INTO users(id,name,password) VALUES(?,?,?)")
         ps.setString(1,user.getId())
         ps.setString(2,user.getName())
@@ -16,7 +16,7 @@ class UserDao(private val connectionMaker: ConnectionMaker) {
     }
 
     fun get(id:String):User{
-        val c = connectionMaker.makeConnection()
+        val c = datasource.makeConnection()
         val ps = c.prepareStatement("SELECT * FROM users WHERE id = ?")
         ps.setString(1,id)
 
@@ -35,7 +35,7 @@ class UserDao(private val connectionMaker: ConnectionMaker) {
     }
 
     fun delete(id:String){
-        val c = connectionMaker.makeConnection()
+        val c = datasource.makeConnection()
         val ps = c.prepareStatement("DELETE FROM users WHERE id = ?")
         ps.setString(1,id)
 
