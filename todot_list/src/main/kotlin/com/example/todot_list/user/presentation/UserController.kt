@@ -12,7 +12,11 @@ import com.example.todot_list.user.dto.*
 class UserController(private val userService:UserService) {
     @PostMapping("/signup")
     fun signup(@RequestBody userSignupDto:UserSignupDto){
-        println("hi")
         userService.signup(userSignupDto)
+    }
+
+    @PostMapping("/signin")
+    fun signin(@RequestBody userSigninDto:UserSigninDto){
+
     }
 }
