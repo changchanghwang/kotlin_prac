@@ -5,6 +5,7 @@ import java.util.*
 
 @Entity
 @Table(
+    name="user",
     uniqueConstraints = [UniqueConstraint(name = "uk_user_email", columnNames = ["email"])]
 )
 class User (

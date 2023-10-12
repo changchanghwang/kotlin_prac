@@ -6,7 +6,7 @@ import jakarta.persistence.Id
 import jakarta.persistence.Table
 
 @Entity
-@Table()
+@Table(name="todo")
 class Todo(
     @Id
     var id: String,
@@ -14,6 +14,6 @@ class Todo(
     @Column(nullable = false, length = 255)
     var title: String,
 
-    @Column(nullable = false, length = 10)
+    @Column(nullable = false, length = 10, name="writerId")
     var writerId: String,
 )
